@@ -11,37 +11,34 @@ import WebKit
 import RxCocoa
 import RxSwift
 
-enum WKNavigationState {
-}
-
 // MARK: - Reactive
 public extension Reactive where Base: WKNavigationDelegate {
 
-    public func webViewDidStart() -> Observable<(webView: WKWebView, navigation: WKNavigation)> {
-        return navigation(#selector(base.webView(_:didStartProvisionalNavigation:)))
+    public var webViewDidStart: Observable<WKNavigationDelegateEvent> {
+        return event(#selector(base.webView(_:didStartProvisionalNavigation:)))
     }
 
-    public func webViewDidRedirectServer() -> Observable<(webView: WKWebView, navigation: WKNavigation)> {
-        return navigation(#selector(base.webView(_:didReceiveServerRedirectForProvisionalNavigation:)))
+    public var webViewDidRedirectServer: Observable<WKNavigationDelegateEvent> {
+        return event(#selector(base.webView(_:didReceiveServerRedirectForProvisionalNavigation:)))
     }
 
-    public func webViewDidFailOnLoading() -> Observable<(webView: WKWebView, navigation: WKNavigation, error: Error)> {
-        return fail(#selector(base.webView(_:didFailProvisionalNavigation:withError:)))
+    public var webViewDidFailOnLoading: Observable<WKNavigationDelegateError> {
+        return error(#selector(base.webView(_:didFailProvisionalNavigation:withError:)))
     }
 
-    func webViewDidCommit() -> Observable<(webView: WKWebView, navigation: WKNavigation)> {
-        return navigation(#selector(base.webView(_:didCommit:)))
+    public var webViewDidCommit: Observable<WKNavigationDelegateEvent> {
+        return event(#selector(base.webView(_:didCommit:)))
     }
 
-    func webViewDidFinish() -> Observable<(webView: WKWebView, navigation: WKNavigation)> {
-        return navigation(#selector(base.webView(_:didFinish:)))
+    public var webViewDidFinish: Observable<WKNavigationDelegateEvent> {
+        return event(#selector(base.webView(_:didFinish:)))
     }
 
-    public func webViewDidFailOnCommit() -> Observable<(webView: WKWebView, navigation: WKNavigation, error: Error)> {
-        return fail(#selector(base.webView(_:didFail:withError:)))
+    public var webViewDidFailOnCommit: Observable<WKNavigationDelegateError> {
+        return error(#selector(base.webView(_:didFail:withError:)))
     }
 
-    public func webViewWebContentProcessDidTerminate() -> Observable<WKWebView> {
+    public var webViewWebContentProcessDidTerminate: Observable<WKWebView> {
         return webView(#selector(base.webViewWebContentProcessDidTerminate(_:)))
     }
 }
@@ -49,15 +46,15 @@ public extension Reactive where Base: WKNavigationDelegate {
 // MARK: - internal
 internal extension Reactive where Base: WKNavigationDelegate {
 
-    func navigation(_ selector: Selector) -> Observable<(webView: WKWebView, navigation: WKNavigation)> {
+    func event(_ selector: Selector) -> Observable<WKNavigationDelegateEvent> {
         return sentMessage(selector)
-            .map { ($0.get(), $0.get()) }
+            .map(WKNavigationDelegateEvent.init)
             .shareReplay(1)
     }
 
-    func fail(_ selector: Selector) -> Observable<(webView: WKWebView, navigation: WKNavigation, error: Error)> {
+    func error(_ selector: Selector) -> Observable<WKNavigationDelegateError> {
         return sentMessage(selector)
-            .map { ($0.get(), $0.get(), $0.get()) }
+            .map(WKNavigationDelegateError.init)
             .shareReplay(1)
     }
 

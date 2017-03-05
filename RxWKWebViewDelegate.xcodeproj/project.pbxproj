@@ -14,6 +14,8 @@
 		AB23B2CF1E6C1386007BBFEE /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23B2CE1E6C1386007BBFEE /* Reactive.swift */; };
 		AB23B2D11E6C2685007BBFEE /* WKNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23B2D01E6C2685007BBFEE /* WKNavigationDelegate.swift */; };
 		AB23B2D31E6C2715007BBFEE /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23B2D21E6C2715007BBFEE /* Collection.swift */; };
+		AB23B2D71E6C5170007BBFEE /* WKNavigationDelegateEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23B2D61E6C5170007BBFEE /* WKNavigationDelegateEvent.swift */; };
+		AB23B2D91E6C5190007BBFEE /* WKNavigationDelegateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23B2D81E6C5190007BBFEE /* WKNavigationDelegateError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		AB23B2CE1E6C1386007BBFEE /* Reactive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
 		AB23B2D01E6C2685007BBFEE /* WKNavigationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKNavigationDelegate.swift; sourceTree = "<group>"; };
 		AB23B2D21E6C2715007BBFEE /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		AB23B2D61E6C5170007BBFEE /* WKNavigationDelegateEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKNavigationDelegateEvent.swift; sourceTree = "<group>"; };
+		AB23B2D81E6C5190007BBFEE /* WKNavigationDelegateError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKNavigationDelegateError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,9 +49,9 @@
 			isa = PBXGroup;
 			children = (
 				AB23B2C61E6C129B007BBFEE /* Cartfile */,
+				AB23B2C81E6C1328007BBFEE /* Frameworks */,
 				AB23B2BC1E6C1226007BBFEE /* Products */,
 				AB23B2BD1E6C1226007BBFEE /* RxWKWebViewDelegate */,
-				AB23B2C81E6C1328007BBFEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,11 +66,13 @@
 		AB23B2BD1E6C1226007BBFEE /* RxWKWebViewDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				AB23B2BF1E6C1226007BBFEE /* Info.plist */,
-				AB23B2BE1E6C1226007BBFEE /* RxWKWebViewDelegate.h */,
-				AB23B2CE1E6C1386007BBFEE /* Reactive.swift */,
-				AB23B2D01E6C2685007BBFEE /* WKNavigationDelegate.swift */,
 				AB23B2D21E6C2715007BBFEE /* Collection.swift */,
+				AB23B2BF1E6C1226007BBFEE /* Info.plist */,
+				AB23B2CE1E6C1386007BBFEE /* Reactive.swift */,
+				AB23B2BE1E6C1226007BBFEE /* RxWKWebViewDelegate.h */,
+				AB23B2D01E6C2685007BBFEE /* WKNavigationDelegate.swift */,
+				AB23B2D81E6C5190007BBFEE /* WKNavigationDelegateError.swift */,
+				AB23B2D61E6C5170007BBFEE /* WKNavigationDelegateEvent.swift */,
 			);
 			path = RxWKWebViewDelegate;
 			sourceTree = "<group>";
@@ -181,8 +187,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB23B2D31E6C2715007BBFEE /* Collection.swift in Sources */,
-				AB23B2D11E6C2685007BBFEE /* WKNavigationDelegate.swift in Sources */,
 				AB23B2CF1E6C1386007BBFEE /* Reactive.swift in Sources */,
+				AB23B2D11E6C2685007BBFEE /* WKNavigationDelegate.swift in Sources */,
+				AB23B2D91E6C5190007BBFEE /* WKNavigationDelegateError.swift in Sources */,
+				AB23B2D71E6C5170007BBFEE /* WKNavigationDelegateEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
