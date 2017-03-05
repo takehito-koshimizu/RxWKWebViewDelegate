@@ -9,9 +9,9 @@
 import WebKit
 
 // MARK: - WKNavigationDelegate
-public class WKNavigationDelegateObject: NSObject, WKNavigationDelegate {
+public final class WKNavigationDelegateObject: NSObject, WKNavigationDelegate {
 
-    override init() {
+    public override init() {
         super.init()
     }
 

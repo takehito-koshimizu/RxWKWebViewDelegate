@@ -126,7 +126,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC19RxWKWebViewDelegate26WKNavigationDelegateObject")
 @interface WKNavigationDelegateObject : NSObject <WKNavigationDelegate>
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (void)webView:(WKWebView * _Nonnull)webView didStartProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
@@ -134,6 +134,10 @@ SWIFT_CLASS("_TtC19RxWKWebViewDelegate26WKNavigationDelegateObject")
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView didFailNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
 - (void)webViewWebContentProcessDidTerminate:(WKWebView * _Nonnull)webView;
+@end
+
+
+@interface WKWebView (SWIFT_EXTENSION(RxWKWebViewDelegate))
 @end
 
 #pragma clang diagnostic pop

@@ -8,7 +8,7 @@
 
 import WebKit
 
-public struct WKNavigationDelegateError: Error {
+public struct NavigationError: Error, ParametersConvertible {
     public internal(set) weak var webView: WKWebView?
     public let navigation: WKNavigation
     public let error: Error
@@ -17,5 +17,9 @@ public struct WKNavigationDelegateError: Error {
         webView = parameters.get()
         navigation = parameters.get()
         error = parameters.get()
+    }
+
+    internal static func instanciate(parameters: [Any]) -> NavigationError {
+        return self.init(parameters: parameters)
     }
 }
