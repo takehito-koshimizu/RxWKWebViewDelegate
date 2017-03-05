@@ -1,0 +1,10 @@
+framework module RxWKWebViewDelegate {
+  umbrella header "RxWKWebViewDelegate.h"
+
+  export *
+  module * { export * }
+}
+
+module RxWKWebViewDelegate.Swift {
+    header "RxWKWebViewDelegate-Swift.h"
+}
